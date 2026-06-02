@@ -287,27 +287,8 @@ export default function ClientApp() {
 
       <InteractiveDesigner />
       <FloatingButtons />
-      <GoogleMapSection />
       <Footer />
     </div>
-  );
-}
-
-function GoogleMapSection() {
-  return (
-    <section id="google-map" className="w-full h-80 relative border-t border-gray-200 bg-gray-50">
-      <iframe 
-        title="Google Map"
-        src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Print%20shop%20F-2%20Near%20Malviya%20Nagar%20Metro%20south%20delhi%20110017+(DIGIMAX%20PRINTING)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-        width="100%" 
-        height="100%" 
-        frameBorder="0" 
-        style={{ border: 0 }} 
-        allowFullScreen 
-        aria-hidden="false" 
-        tabIndex={0}
-      />
-    </section>
   );
 }
 
@@ -456,8 +437,17 @@ function InteractiveDesigner() {
             </div>
 
             {!isSticker && !isId && details.showQr && (
-              <div className="bg-white p-1.5 rounded-md shadow-sm">
-                 <QrCode className="w-14 h-14 text-black"/>
+              <div className="flex flex-col items-center ml-4">
+                <div className="bg-white p-1.5 rounded-md shadow-sm mb-1">
+                   <img 
+                     src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/918287875040" 
+                     alt="WhatsApp QR Code" 
+                     className="w-14 h-14 object-contain"
+                   />
+                </div>
+                <span className="text-[7px] font-bold uppercase tracking-wider opacity-90 text-center leading-tight">
+                  Scan to<br/>WhatsApp
+                </span>
               </div>
             )}
             
