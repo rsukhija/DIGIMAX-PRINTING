@@ -406,25 +406,9 @@ function InteractiveDesigner() {
         <div className={`relative z-10 h-full flex w-full ${isSticker || isId ? 'flex-col items-center justify-center' : 'flex-col'}`}>
           
           <div className={`flex w-full ${isSticker || isId ? 'flex-col items-center text-center mb-6' : 'justify-between items-start mb-6'}`}>
-             {logoUrl ? (
-               /* eslint-disable-next-line @next/next/no-img-element */
-               <img 
-                 src={logoUrl} 
-                 alt="Logo" 
-                 style={{ width: `${details.logoSize}px`, height: `${details.logoSize}px` }}
-                 className={`object-cover ${details.logoShape === 'round' ? 'rounded-full' : 'rounded-md'} ${(isSticker||isId)?'mb-4':''}`} 
-               />
-             ) : (
-               <div 
-                 style={{ width: `${details.logoSize}px`, height: `${details.logoSize}px` }}
-                 className={`bg-black/10 border border-white/20 flex items-center justify-center text-xs opacity-50 ${details.logoShape === 'round' ? 'rounded-full' : 'rounded-md'} ${(isSticker||isId)?'mb-4':''}`}
-               >
-                 Logo
-               </div>
-             )}
              {!isSticker && !isId && (
-               <div className="w-[60%] flex flex-col items-end">
-                 <FitText align="right" text={details.company || 'Company Name'} className="font-black text-xl tracking-wider uppercase leading-tight" />
+               <div className="w-[60%] flex flex-col items-start">
+                 <FitText align="left" text={details.company || 'Company Name'} className="font-black text-xl tracking-wider uppercase leading-tight" />
                  <p className="text-[10px] uppercase tracking-[0.2em] opacity-80 mt-1">Design Studio</p>
                </div>
              )}
@@ -481,23 +465,7 @@ function InteractiveDesigner() {
             <div className="absolute inset-0 border-[1.5px] border-red-500 opacity-80" title="Bleed/Cut Area"></div>
           </div>
         )}
-        {logoUrl ? (
-           /* eslint-disable-next-line @next/next/no-img-element */
-           <img 
-             src={logoUrl} 
-             alt="Logo" 
-             style={{ width: `${details.logoSize * (type === 'ID Card' ? 2 : 1.5)}px`, height: `${details.logoSize * (type === 'ID Card' ? 2 : 1.5)}px` }}
-             className={`object-cover ${details.logoShape === 'round' ? 'rounded-full' : 'rounded-md'} mb-6`} 
-           />
-         ) : (
-           <div 
-             style={{ width: `${details.logoSize * (type === 'ID Card' ? 2 : 1.5)}px`, height: `${details.logoSize * (type === 'ID Card' ? 2 : 1.5)}px` }}
-             className={`bg-gray-200/20 border border-gray-400/30 flex items-center justify-center text-xs opacity-50 ${details.logoShape === 'round' ? 'rounded-full' : 'rounded-md'} mb-6`}
-           >
-             Logo
-           </div>
-         )}
-         <div className="w-full">
+         <div className="w-full text-center">
            <FitText align="center" text={details.company || 'Company Name'} className={`font-black ${type==='ID Card' ? 'text-2xl' : 'text-xl'} tracking-widest uppercase mb-4 opacity-100 text-center w-full`} />
          </div>
          <div className="w-full max-h-[60px] overflow-hidden">
@@ -528,7 +496,7 @@ function InteractiveDesigner() {
             Design Your <br/><span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d4af37] to-[#f3e5ab]">Professional Card</span> in Minutes
           </h2>
           <p className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
-            1000+ templates. Front & back editing. AI design suggestions. Premium luxury themes. Add logo, QR code, and customize everything.
+            1000+ templates. Front & back editing. AI design suggestions. Premium luxury themes. Customize everything.
           </p>
         </div>
 
@@ -641,30 +609,6 @@ function InteractiveDesigner() {
                   <textarea rows={2} value={details.backExtra} onChange={(e) => setDetails({ ...details, backExtra: e.target.value })} className="w-full bg-[#0a0a0a] border border-[#333333] text-white rounded-lg px-4 py-2.5 focus:outline-none focus:border-[#d4af37] text-sm transition-colors" placeholder="Text for the reverse side..." />
                 </div>
               )}
-            </div>
-
-            <div className="border-t border-white/10 pt-6 space-y-5 flex flex-col items-start bg-[#0a0a0a] -mx-6 -mb-6 p-6 rounded-b-3xl">
-              <label className="block text-base font-bold text-white">Upload Custom Logo</label>
-              
-              <div className="w-full flex gap-4 items-center">
-                <label className="flex-1 flex flex-col items-center justify-center h-20 border-2 border-[#333] border-dashed rounded-xl cursor-pointer bg-[#141414] hover:bg-[#1a1a1a] hover:border-[#d4af37] transition-colors group">
-                  <div className="flex items-center gap-2">
-                    <Upload className="w-5 h-5 text-gray-400 group-hover:text-[#d4af37] transition-colors" />
-                    <span className="text-sm text-gray-400 group-hover:text-[#d4af37] font-medium">Browse Files</span>
-                  </div>
-                  <input type="file" className="hidden" accept="image/*" onChange={handleLogoUpload} />
-                </label>
-                
-                {logoUrl && (
-                  <div className="flex flex-col gap-3 w-1/2">
-                    <div className="flex justify-between">
-                       <label className="block text-xs font-medium text-gray-400">Scale</label>
-                       <span className="text-[10px] text-gray-500">{details.logoSize}px</span>
-                    </div>
-                    <input type="range" min="30" max={type === 'Sticker' ? "200" : "150"} value={details.logoSize} onChange={(e) => setDetails({ ...details, logoSize: Number(e.target.value) })} className="w-full h-1 bg-[#333] rounded-lg appearance-none cursor-pointer accent-[#d4af37]" />
-                  </div>
-                )}
-              </div>
             </div>
 
           </div>
