@@ -770,44 +770,6 @@ function Navbar({ onNavCategory, onNavHome }: { onNavCategory: (c:string)=>void,
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           <div className="flex items-center space-x-3 cursor-pointer" onClick={onNavHome}>
-            {/* Custom Logo Image - Upload 'logo.png' to the public folder to override this */}
-            <img 
-              src="/logo.png" 
-              alt="DIGIMAX LOGO" 
-              className="h-20 md:h-24 w-auto object-contain" 
-              onError={(e) => { 
-                e.currentTarget.style.display = 'none'; 
-                document.getElementById('fallback-logo')!.style.display = 'flex'; 
-              }} 
-            />
-            {/* Fallback SVG Logo (shown if logo.png is missing) */}
-            <div id="fallback-logo" className="hidden h-16 w-16 md:h-20 md:w-20 hidden items-center justify-center relative">
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl">
-                {/* D block */}
-                <path d="M 20 20 L 45 20 C 65 20 70 35 70 50 C 70 65 65 80 45 80 L 20 80 Z" fill="url(#blue-grad)" />
-                <path d="M 35 35 L 42 35 C 52 35 52 65 42 65 L 35 65 Z" fill="#ffffff" />
-                {/* M block - overlapping */}
-                <path d="M 40 50 L 55 25 L 70 50 L 85 25 L 85 80 L 70 80 L 70 55 L 55 75 L 40 55 L 40 80 L 30 80 Z" fill="url(#cyan-grad)" opacity="0.9" />
-                {/* CMYK swoosh */}
-                <path d="M 10 70 Q 50 100 90 70 L 95 80 Q 50 115 5 80 Z" fill="url(#cmyk-grad)" />
-                <defs>
-                  <linearGradient id="blue-grad" x1="20" y1="20" x2="70" y2="80" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#1E3A8A" />
-                    <stop offset="1" stopColor="#3B82F6" />
-                  </linearGradient>
-                  <linearGradient id="cyan-grad" x1="40" y1="25" x2="85" y2="80" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#0EA5E9" />
-                    <stop offset="1" stopColor="#0369A1" />
-                  </linearGradient>
-                  <linearGradient id="cmyk-grad" x1="10" y1="70" x2="90" y2="70" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#00FFFF" />
-                    <stop offset="0.33" stopColor="#FF00FF" />
-                    <stop offset="0.66" stopColor="#FFFF00" />
-                    <stop offset="1" stopColor="#000000" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
             <div className="flex flex-col">
               <span className="font-display font-black text-3xl md:text-5xl tracking-tighter text-brand-900 leading-none">DIGIMAX</span>
               <span className="font-sans font-bold text-xs md:text-sm tracking-[0.34em] text-brand-500 leading-none mt-1">PRINTING</span>
