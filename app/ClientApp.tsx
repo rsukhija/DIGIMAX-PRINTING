@@ -287,8 +287,27 @@ export default function ClientApp() {
 
       <InteractiveDesigner />
       <FloatingButtons />
+      <GoogleMapSection />
       <Footer />
     </div>
+  );
+}
+
+function GoogleMapSection() {
+  return (
+    <section id="google-map" className="w-full h-80 relative border-t border-gray-200 bg-gray-50">
+      <iframe 
+        title="Google Map"
+        src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Print%20shop%20F-2%20Near%20Malviya%20Nagar%20Metro%20south%20delhi%20110017+(DIGIMAX%20PRINTING)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        width="100%" 
+        height="100%" 
+        frameBorder="0" 
+        style={{ border: 0 }} 
+        allowFullScreen 
+        aria-hidden="false" 
+        tabIndex={0}
+      />
+    </section>
   );
 }
 
