@@ -1,0 +1,8 @@
+{
+  "name": "DIGIMAX PRINTING",
+  "description": "Premium digital printing services including business cards, banners, ID cards, and corporate branding.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
